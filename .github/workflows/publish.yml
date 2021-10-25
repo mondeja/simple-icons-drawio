@@ -33,7 +33,7 @@ jobs:
       - name: Bump version
         run: |
           sed -i 's/"version": "${{ steps.get-releases.outputs.lib }}",/"version": "${{ steps.get-releases.outputs.si }}",/' package.json
-          sed -i 's/"simple-icons": "${{ steps.get-releases.outputs.lib }}",/"simple-icons": "${{ steps.get-releases.outputs.si }}",/' package.json
+          sed -i 's/"simple-icons": "${{ steps.get-releases.outputs.lib }}"/"simple-icons": "${{ steps.get-releases.outputs.si }}"/' package.json
       - name: Build library
         run: npm run build
       - name: Commit
