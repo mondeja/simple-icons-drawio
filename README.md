@@ -2,6 +2,10 @@
 
 Load all [simple-icons] brands directly to [drawio].
 
+<p align="center">
+  <img src="simple-icons-drawio.png" "Simple Icons in drawio">
+</p>
+
 ## Usage
 
 Inside a [drawio] project, go to `File` -> `Open library from` -> `URL` and
