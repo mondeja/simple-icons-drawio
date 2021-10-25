@@ -1,0 +1,16 @@
+{
+  "name": "simple-icons-diagrams-net",
+  "version": "5.19.0",
+  "scripts": {
+    "build": "node build.js"
+  },
+  "keywords": [],
+  "author": {
+    "name": "Álvaro Mondéjar Rubio",
+    "email": "mondejar1994@gmail.com"
+  },
+  "license": "BSD-3-Clause",
+  "devDependencies": {
+    "simple-icons": "5.19.0"
+  }
+}

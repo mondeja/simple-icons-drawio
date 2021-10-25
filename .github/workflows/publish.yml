@@ -1,0 +1,80 @@
+name: Release
+on:
+  schedule:
+    - cron: 0 0 * * 1,2,3,4,5
+  workflow_dispatch:
+
+jobs:
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          # Ensure we are checked out on the develop branch
+          ref: develop
+          # Ensure custom credentials are used when pushing
+          persist-credentials: false
+          # Fetch everything so we can checkout master
+          fetch-depth: 0
+      - name: Use NodeJS v14
+        uses: actions/setup-node@v2.2.0
+        with:
+          node-version: 14.x
+      - name: Compare release versions
+        id: get-releases
+        run: |
+          simple_icons_version="$(curl --retry 5 -s https://api.github.com/repos/simple-icons/simple-icons/releases/latest | jq -r .tag_name)"
+          echo "::set-output name=si::$simple_icons_version"
+          echo "::set-output name=lib::$(cat package.json | grep '"version":' | cut -d'"' -f4)"
+      - name: Install dependencies
+        id: install
+        if: steps.get-releases.outputs.lib != steps.get-releases.outputs.si
+        run: npm ci
+      - name: Bump version
+        id: bump-version
+        needs: install
+        run: |
+          sed -i 's/"version": "${{ steps.get-releases.outputs.lib }}",/"version": "${{ steps.get-releases.outputs.si }}",/' package.json
+          sed -i 's/"simple-icons": "${{ steps.get-releases.outputs.lib }}",/"simple-icons": "${{ steps.get-releases.outputs.si }}",/' package.json
+      - name: Build library
+        id: build
+        needs: bump-version
+        run: npm run build
+      - name: Commit
+        id: commit-push
+        needs: build
+        run: |
+          # Set up git credential
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "github-actions[bot]"
+          # Create a version bump commit
+          git add .
+          git commit -m "Version bump"
+          # Merge develop into master
+          git checkout master
+          git merge develop --no-ff -m "Release ${{ steps.get-releases.outputs.si }}"
+          # Set up remote using a Personal Access Token
+          git remote remove origin
+          git remote add origin https://${{secrets.RELEASE_TOKEN}}@github.com/simple-icons/simple-icons-font.git
+          # Push develop first, to prevent conflicts with parallel activity
+          git push origin develop
+          # Push master only after develop was safely pushed
+          git push origin master
+      - name: Create and push git tag
+        id: tag
+        needs: commit-push
+        uses: actions-ecosystem/action-push-tag@v1
+        with:
+          tag: ${{ steps.get-releases.outputs.si }}
+      - name: Create GitHub release
+        id: release
+        needs: tag
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ steps.get-releases.outputs.si }}
+          release_name: Release ${{ steps.get-releases.outputs.si }}
+          body: |
+            See https://github.com/simple-icons/simple-icons/releases/tag/${{ steps.get-releases.outputs.si }}
