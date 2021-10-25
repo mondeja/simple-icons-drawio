@@ -8,8 +8,10 @@ Inside a [drawio] project, go to `File` -> `Open library from` -> `URL` and
 paste the next URL:
 
 ```
-https://raw.githubusercontent.com/mondeja/simple-icons-diagrams-net/master/simple-icons.xml
+https://raw.githubusercontent.com/mondeja/simple-icons-drawio/master/simple-icons.xml
 ```
+
+It could take a few seconds to load.
 
 [diagrams.net]: https://www.diagrams.net/
 [drawio]: https://github.com/jgraph/drawio

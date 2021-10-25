@@ -24,39 +24,43 @@ const encodeMxGraph = (xml) => {
   return encodeURIComponent(xml).replace(/\*/, '%2A');
 }
 
-const simpleIconsArray = Object.keys(simpleIcons),
-  library = [];
+const library = [];
 
-let index = 0;
-const addIconToLibrary = (onSuccess) => {
-  const icon = simpleIcons[simpleIconsArray[index]];
-  const styledSvg = icon.svg
-    .replace(
-      `</title>`,
-      `</title><style type="text/css">path{fill:#${icon.hex};}</style>`
-    );
-  zlib.deflate(encodeMxGraph(mxGraph(styledSvg)), (err, buffer) => {
-    library.push({
-      xml: buffer.slice(2, buffer.length - 4).toString("base64"),
-      h: 144,
-      w: 144,
-      title: encodeHTML(simpleIcons[simpleIconsArray[index]].title),
-      aspect: "fixed",
+const addIconsToLibrary = (onFinished) => {
+  const simpleIconsArray = Object.keys(simpleIcons);
+  let index = 0;
+  
+  const addIconToLibrary = (onSuccess) => {
+    const icon = simpleIcons[simpleIconsArray[index]];
+    const styledSvg = icon.svg
+      .replace(
+        `</title>`,
+        `</title><style type="text/css">path{fill:#${icon.hex};}</style>`
+      );
+    zlib.deflate(encodeMxGraph(mxGraph(styledSvg)), (err, buffer) => {
+      library.push({
+        xml: buffer.slice(2, buffer.length - 4).toString("base64"),
+        h: 144,
+        w: 144,
+        title: encodeHTML(simpleIcons[simpleIconsArray[index]].title),
+        aspect: "fixed",
+      });
+
+      onSuccess();
     });
-    
-    index++;
-    
-    onSuccess();
-  });
+  }
+
+  const callback = () => {
+    if (index < simpleIconsArray.length) {
+      addIconToLibrary(callback);
+      index++;
+    } else {
+      onFinished();
+    }
+  };
 }
 
-const callback = () => {
-  if (index < simpleIconsArray.length) {
-    addIconToLibrary(callback);
-  } else {
-    const output = `<mxlibrary title="Simple Icons">${JSON.stringify(library)}</mxlibrary>`;
-    fs.writeFileSync("simple-icons.xml", output);
-  }
-};
-addIconToLibrary(callback);
-
+addIconsToLibrary(() => {
+  const output = `<mxlibrary title="Simple Icons">${JSON.stringify(library)}</mxlibrary>`;
+  fs.writeFileSync("simple-icons.xml", output);
+})

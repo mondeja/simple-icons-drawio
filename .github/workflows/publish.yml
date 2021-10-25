@@ -28,22 +28,15 @@ jobs:
           echo "::set-output name=si::$simple_icons_version"
           echo "::set-output name=lib::$(cat package.json | grep '"version":' | cut -d'"' -f4)"
       - name: Install dependencies
-        id: install
         if: steps.get-releases.outputs.lib != steps.get-releases.outputs.si
         run: npm ci
       - name: Bump version
-        id: bump-version
-        needs: install
         run: |
           sed -i 's/"version": "${{ steps.get-releases.outputs.lib }}",/"version": "${{ steps.get-releases.outputs.si }}",/' package.json
           sed -i 's/"simple-icons": "${{ steps.get-releases.outputs.lib }}",/"simple-icons": "${{ steps.get-releases.outputs.si }}",/' package.json
       - name: Build library
-        id: build
-        needs: bump-version
         run: npm run build
       - name: Commit
-        id: commit-push
-        needs: build
         run: |
           # Set up git credential
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
@@ -62,14 +55,10 @@ jobs:
           # Push master only after develop was safely pushed
           git push origin master
       - name: Create and push git tag
-        id: tag
-        needs: commit-push
         uses: actions-ecosystem/action-push-tag@v1
         with:
           tag: ${{ steps.get-releases.outputs.si }}
       - name: Create GitHub release
-        id: release
-        needs: tag
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
