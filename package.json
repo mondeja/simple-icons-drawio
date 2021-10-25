@@ -1,6 +1,6 @@
 {
   "name": "simple-icons-drawio",
-  "version": "5.20.0",
+  "version": "5.19.0",
   "scripts": {
     "build": "node build.js"
   },
