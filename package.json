@@ -1,5 +1,5 @@
 {
-  "name": "simple-icons-diagrams-net",
+  "name": "simple-icons-drawio",
   "version": "5.19.0",
   "scripts": {
     "build": "node build.js"

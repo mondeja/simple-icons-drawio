@@ -29,7 +29,7 @@ jobs:
           echo "::set-output name=lib::$(cat package.json | grep '"version":' | cut -d'"' -f4)"
       - name: Install dependencies
         if: steps.get-releases.outputs.lib != steps.get-releases.outputs.si
-        run: npm ci
+        run: npm install
       - name: Bump version
         run: |
           sed -i 's/"version": "${{ steps.get-releases.outputs.lib }}",/"version": "${{ steps.get-releases.outputs.si }}",/' package.json
@@ -42,7 +42,7 @@ jobs:
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git config --global user.name "github-actions[bot]"
           # Create a version bump commit
-          git add .
+          git add package.json simple-icons.xml
           git commit -m "Version bump"
           # Merge develop into master
           git checkout master
