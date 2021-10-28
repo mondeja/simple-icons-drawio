@@ -34,15 +34,12 @@ jobs:
         if: failure()
         run: npm install
       - name: Bump version
-        if: failure()
         run: |
           sed -i 's/"version": "${{ steps.get-releases.outputs.lib }}",/"version": "${{ steps.get-releases.outputs.si }}",/' package.json
           sed -i 's/"simple-icons": "${{ steps.get-releases.outputs.lib }}"/"simple-icons": "${{ steps.get-releases.outputs.si }}"/' package.json
       - name: Build library
-        if: failure()
         run: npm run build
       - name: Commit
-        if: failure()
         run: |
           # Set up git credential
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
@@ -61,12 +58,11 @@ jobs:
           # Push master only after develop was safely pushed
           git push origin master
       - name: Create and push git tag
-        if: failure()
         uses: actions-ecosystem/action-push-tag@v1
         with:
           tag: ${{ steps.get-releases.outputs.si }}
       - name: Create GitHub release
-        if: failure()
+        id: create-release
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -75,3 +71,8 @@ jobs:
           release_name: Release ${{ steps.get-releases.outputs.si }}
           body: |
             See https://github.com/simple-icons/simple-icons/releases/tag/${{ steps.get-releases.outputs.si }}
+      - uses: shogo82148/actions-upload-release-asset@v1.3.0
+        name: Upload release asset
+        with:
+          upload_url: ${{ steps.create-release.outputs.upload_url }}
+          asset_path: simple-icons.xml
