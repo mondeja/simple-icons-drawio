@@ -30,13 +30,14 @@ jobs:
       - name: Check should release
         if: steps.get-releases.outputs.lib != steps.get-releases.outputs.si
         run: exit 1
-      - name: Install dependencies
-        if: failure()
-        run: npm install
       - name: Bump version
+        if: failure()
         run: |
           sed -i 's/"version": "${{ steps.get-releases.outputs.lib }}",/"version": "${{ steps.get-releases.outputs.si }}",/' package.json
           sed -i 's/"simple-icons": "${{ steps.get-releases.outputs.lib }}"/"simple-icons": "${{ steps.get-releases.outputs.si }}"/' package.json
+          sed -i 's/${{ steps.get-releases.outputs.lib }}/${{ steps.get-releases.outputs.si }}/g' README.md
+      - name: Install dependencies
+        run: npm install
       - name: Build library
         run: npm run build
       - name: Commit

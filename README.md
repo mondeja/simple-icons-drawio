@@ -12,7 +12,7 @@ Inside a [drawio] project, go to `File` -> `Open library from` -> `URL` and
 paste the next URL:
 
 ```
-https://raw.githubusercontent.com/mondeja/simple-icons-drawio/master/simple-icons.xml
+https://github.com/mondeja/simple-icons-drawio/releases/download/5.20.0/simple-icons.xml
 ```
 
 Note that could take a few seconds to load.
@@ -21,7 +21,7 @@ You can also start a new project in [diagrams.net] with the simple-icons
 library loaded using [this link](https://app.diagrams.net/?splash=0&clibs=https%3A%2F%2Fraw.githubusercontent.com%2Fmondeja%2Fsimple-icons-drawio%2Fmaster%2Fsimple-icons.xml):
 
 ```
-https://app.diagrams.net/?splash=0&clibs=https%3A%2F%2Fraw.githubusercontent.com%2Fmondeja%2Fsimple-icons-drawio%2Fmaster%2Fsimple-icons.xml
+https://app.diagrams.net/?splash=0&clibs=https%3A%2F%2Fgithub.com%2Fmondeja%2Fsimple-icons-drawio%2Freleases%2Fdownload%2F5.20.0%2Fsimple-icons.xml
 ```
 
 [diagrams.net]: https://www.diagrams.net/
