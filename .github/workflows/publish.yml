@@ -27,8 +27,11 @@ jobs:
           simple_icons_version="$(curl --retry 5 -s https://api.github.com/repos/simple-icons/simple-icons/releases/latest | jq -r .tag_name)"
           echo "::set-output name=si::$simple_icons_version"
           echo "::set-output name=lib::$(cat package.json | grep '"version":' | cut -d'"' -f4)"
-      - name: Install dependencies
+      - name: Check should release
         if: steps.get-releases.outputs.lib != steps.get-releases.outputs.si
+        run: exit 1
+      - name: Install dependencies
+        if: failure()
         run: npm install
       - name: Bump version
         run: |
@@ -59,6 +62,7 @@ jobs:
         with:
           tag: ${{ steps.get-releases.outputs.si }}
       - name: Create GitHub release
+        id: create-release
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -67,3 +71,8 @@ jobs:
           release_name: Release ${{ steps.get-releases.outputs.si }}
           body: |
             See https://github.com/simple-icons/simple-icons/releases/tag/${{ steps.get-releases.outputs.si }}
+      - uses: shogo82148/actions-upload-release-asset@v1.3.0
+        name: Upload release asset
+        with:
+          upload_url: ${{ steps.create-release.outputs.upload_url }}
+          asset_path: simple-icons.xml
