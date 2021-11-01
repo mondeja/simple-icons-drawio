@@ -27,30 +27,30 @@ jobs:
           simple_icons_version="$(curl --retry 5 -s https://api.github.com/repos/simple-icons/simple-icons/releases/latest | jq -r .tag_name)"
           echo "::set-output name=si::$simple_icons_version"
           echo "::set-output name=lib::$(cat package.json | grep '"version":' | cut -d'"' -f4)"
-      - name: Check should release
-        if: steps.get-releases.outputs.lib != steps.get-releases.outputs.si
-        run: exit 1
       - name: Bump version
-        if: failure()
+        if: steps.get-releases.outputs.lib != steps.get-releases.outputs.si
         run: |
           sed -i 's/"version": "${{ steps.get-releases.outputs.lib }}",/"version": "${{ steps.get-releases.outputs.si }}",/' package.json
           sed -i 's/"simple-icons": "${{ steps.get-releases.outputs.lib }}"/"simple-icons": "${{ steps.get-releases.outputs.si }}"/' package.json
           sed -i 's/${{ steps.get-releases.outputs.lib }}/${{ steps.get-releases.outputs.si }}/g' README.md
       - name: Install dependencies
+        if: steps.get-releases.outputs.lib != steps.get-releases.outputs.si
         run: npm install
       - name: Build library
+        if: steps.get-releases.outputs.lib != steps.get-releases.outputs.si
         run: npm run build
       - name: Commit
+        if: steps.get-releases.outputs.lib != steps.get-releases.outputs.si
         run: |
           # Set up git credential
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git config --global user.name "github-actions[bot]"
           # Create a version bump commit
-          git add package.json simple-icons.xml
+          git add .
           git commit -m "Version bump"
           # Merge develop into master
           git checkout master
-          git merge develop --no-ff -m "Release ${{ steps.get-releases.outputs.si }}"
+          git merge develop -m "Release ${{ steps.get-releases.outputs.si }}"
           # Set up remote using a Personal Access Token
           git remote remove origin
           git remote add origin https://${{secrets.RELEASE_TOKEN}}@github.com/mondeja/simple-icons-drawio.git
@@ -59,10 +59,12 @@ jobs:
           # Push master only after develop was safely pushed
           git push origin master
       - name: Create and push git tag
+        if: steps.get-releases.outputs.lib != steps.get-releases.outputs.si
         uses: actions-ecosystem/action-push-tag@v1
         with:
           tag: ${{ steps.get-releases.outputs.si }}
       - name: Create GitHub release
+        if: steps.get-releases.outputs.lib != steps.get-releases.outputs.si
         id: create-release
         uses: actions/create-release@v1
         env:
@@ -72,8 +74,9 @@ jobs:
           release_name: Release ${{ steps.get-releases.outputs.si }}
           body: |
             See https://github.com/simple-icons/simple-icons/releases/tag/${{ steps.get-releases.outputs.si }}
-      - uses: shogo82148/actions-upload-release-asset@v1.3.0
-        name: Upload release asset
+      - name: Upload release asset
+        if: steps.get-releases.outputs.lib != steps.get-releases.outputs.si
+        uses: shogo82148/actions-upload-release-asset@v1.3.0
         with:
           upload_url: ${{ steps.create-release.outputs.upload_url }}
           asset_path: simple-icons.xml
