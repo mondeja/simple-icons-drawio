@@ -46,7 +46,7 @@ jobs:
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git config --global user.name "github-actions[bot]"
           # Create a version bump commit
-          git add .
+          git add simple-icons.xml package.json build.js README.md .editorconfig .gitignore images .github
           git commit -m "Version bump"
           # Merge develop into master
           git checkout master
