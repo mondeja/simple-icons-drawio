@@ -4,7 +4,6 @@
  * Creates a drawio library with all simple-icons icons.
  */
 
-
 const fs = require("fs");
 const simpleIcons = require("simple-icons");
 const zlib = require("zlib");
@@ -24,43 +23,29 @@ const encodeMxGraph = (xml) => {
   return encodeURIComponent(xml).replace(/\*/, '%2A');
 }
 
-const library = [];
-
-const addIconsToLibrary = (onFinished) => {
-  const simpleIconsArray = Object.keys(simpleIcons);
-  let index = 0;
-  
-  const addIconToLibrary = (onSuccess) => {
-    const icon = simpleIcons[simpleIconsArray[index]];
+const buildLibrary = (onFinished) => {
+  const library = [];
+  for (let iconSlug in simpleIcons) {
+    const icon = simpleIcons[iconSlug];
     const styledSvg = icon.svg
       .replace(
         `</title>`,
         `</title><style type="text/css">path{fill:#${icon.hex};}</style>`
       );
-    zlib.deflate(encodeMxGraph(mxGraph(styledSvg)), (err, buffer) => {
-      library.push({
-        xml: buffer.slice(2, buffer.length - 4).toString("base64"),
-        h: 144,
-        w: 144,
-        title: encodeHTML(simpleIcons[simpleIconsArray[index]].title),
-        aspect: "fixed",
-      });
 
-      onSuccess();
+    const buffer = zlib.deflateSync(encodeMxGraph(mxGraph(styledSvg)));
+    library.push({
+      xml: buffer.slice(2, buffer.length - 4).toString("base64"),
+      h: 144,
+      w: 144,
+      title: encodeHTML(icon.title),
+      aspect: "fixed",
     });
   }
-
-  const callback = () => {
-    if (index < simpleIconsArray.length) {
-      addIconToLibrary(callback);
-      index++;
-    } else {
-      onFinished();
-    }
-  };
+  return library;
 }
 
-addIconsToLibrary(() => {
-  const output = `<mxlibrary title="Simple Icons">${JSON.stringify(library)}</mxlibrary>`;
-  fs.writeFileSync("simple-icons.xml", output);
-})
+fs.writeFileSync(
+  "simple-icons.xml",
+  `<mxlibrary title="Simple Icons">${JSON.stringify(buildLibrary())}</mxlibrary>`
+);
