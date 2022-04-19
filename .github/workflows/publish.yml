@@ -42,6 +42,7 @@ jobs:
       - name: Commit
         if: steps.get-releases.outputs.lib != steps.get-releases.outputs.si
         run: |
+          set -e
           # Set up git credential
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git config --global user.name "github-actions[bot]"
@@ -60,9 +61,11 @@ jobs:
           git push origin master
       - name: Create and push git tag
         if: steps.get-releases.outputs.lib != steps.get-releases.outputs.si
-        uses: actions-ecosystem/action-push-tag@v1
-        with:
-          tag: ${{ steps.get-releases.outputs.si }}
+        run: |
+          set -e
+          tag="${{ steps.get-releases.outputs.si }}"
+          git tag -a "${tag}"
+          git push origin "${tag}"
       - name: Create GitHub release
         if: steps.get-releases.outputs.lib != steps.get-releases.outputs.si
         id: create-release
