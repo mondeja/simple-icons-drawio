@@ -64,7 +64,7 @@ jobs:
         run: |
           set -e
           tag="${{ steps.get-releases.outputs.si }}"
-          git tag -a "${tag}"
+          git tag -a "${tag}" -m ""
           git push origin "${tag}"
       - name: Create GitHub release
         if: steps.get-releases.outputs.lib != steps.get-releases.outputs.si
