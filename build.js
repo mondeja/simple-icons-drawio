@@ -37,17 +37,17 @@ const mxGraph = (svg) => {
 }
 
 const encodeMxGraph = (xml) => {
-  return encodeURIComponent(xml).replace(/\*/, '%2A');
+  return encodeURIComponent(xml).replace('*', '%2A');
 }
 
 const buildLibrary = (onFinished) => {
   const library = [];
-  for (let iconSlug in simpleIcons) {
-    const icon = simpleIcons[iconSlug];
+  for (const slug in simpleIcons) {
+    const icon = simpleIcons[slug];
     const styledSvg = icon.svg
       .replace(
         `</title>`,
-        `</title><style type="text/css">path{fill:#${icon.hex};}</style>`
+        `</title><style>path{fill:#${icon.hex};}</style>`
       );
 
     const buffer = zlib.deflateSync(encodeMxGraph(mxGraph(styledSvg)));
