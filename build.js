@@ -16,7 +16,24 @@ const encodeHTML = value => value
   .replace(/'/g, '&apos;')
 
 const mxGraph = (svg) => {
-  return `<mxGraphModel><root><mxCell id="0" /><mxCell id="1" parent="0" /><mxCell id="2" value="" style="shape=image;editableCssRules=.*;verticalLabelPosition=bottom;verticalAlign=top;imageAspect=0;aspect=fixed;image=data:image/svg+xml,${new Buffer.from(svg).toString("base64")};fillColor=#000000;" vertex="1" parent="1"><mxGeometry width="144" height="144" as="geometry" /></mxCell></root></mxGraphModel>`;
+  return `<mxGraphModel>`
+    + `<root>`
+    + `<mxCell id="0" />`
+    + `<mxCell id="1" parent="0" />`
+    + `<mxCell`
+    + ` id="2"`
+    + ` style="`
+      + `shape=image;`
+      + `editableCssRules=.*;`
+      + `image=data:image/svg+xml,${new Buffer.from(svg).toString("base64")};`
+    + `"`
+    + ` vertex="1"`
+    + ` parent="1"`
+    + `>`
+    + `<mxGeometry width="144" height="144" as="geometry" />`
+    + `</mxCell>`
+    + `</root>`
+    + `</mxGraphModel>`;
 }
 
 const encodeMxGraph = (xml) => {
