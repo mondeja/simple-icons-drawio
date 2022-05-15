@@ -8,12 +8,9 @@ const fs = require("fs");
 const simpleIcons = require("simple-icons");
 const zlib = require("zlib");
 
-const encodeHTML = value => value
-  .replace(/&/g, '&#38;')
-  .replace(/</g, '&lt;')
-  .replace(/>/g, '&gt;')
-  .replace(/"/g, '&quot;')
-  .replace(/'/g, '&apos;')
+const SVG_TITLE_EXPR = /<title>([^<]+)</
+
+const extractIconTitle = (svg) => svg.match(SVG_TITLE_EXPR)[1]
 
 const mxGraph = (svg) => {
   return `<mxGraphModel>`
@@ -40,23 +37,22 @@ const encodeMxGraph = (xml) => {
   return encodeURIComponent(xml).replace('*', '%2A');
 }
 
-const buildLibrary = (onFinished) => {
+const buildLibrary = () => {
   const library = [];
   for (const slug in simpleIcons) {
     const icon = simpleIcons[slug];
-    const styledSvg = icon.svg
-      .replace(
-        `</title>`,
-        `</title><style>path{fill:#${icon.hex};}</style>`
-      );
+    const styledSvg =
+      `<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">`
+      + `<style>svg{fill:#${icon.hex};}</style>`
+      + `<path d="${icon.path}"/>`
+      + `</svg>`
 
     const buffer = zlib.deflateSync(encodeMxGraph(mxGraph(styledSvg)));
     library.push({
       xml: buffer.slice(2, buffer.length - 4).toString("base64"),
       h: 144,
       w: 144,
-      title: encodeHTML(icon.title),
-      aspect: "fixed",
+      title: extractIconTitle(icon.svg),
     });
   }
   return library;
