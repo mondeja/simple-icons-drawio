@@ -48,7 +48,7 @@ const buildLibrary = () => {
     const icon = icons[si];
     const styledSvg =
       `<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">`
-      + `<style>svg{fill:#${simplifyHexIfPossible(icon.hex)}}</style>`
+      + `<style>*{fill:#${simplifyHexIfPossible(icon.hex)}}</style>`
       + `<path d="${icon.path}"/>`
       + `</svg>`
 
