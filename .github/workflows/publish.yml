@@ -17,10 +17,10 @@ jobs:
           persist-credentials: false
           # Fetch everything so we can checkout master
           fetch-depth: 0
-      - name: Use NodeJS v16
+      - name: Use NodeJS v18
         uses: actions/setup-node@v3
         with:
-          node-version: 16.x
+          node-version: 18.x
       - name: Compare release versions
         id: get-releases
         run: |
@@ -69,7 +69,7 @@ jobs:
       - name: Create GitHub release
         if: steps.get-releases.outputs.lib != steps.get-releases.outputs.si
         id: create-release
-        uses: actions/create-release@v1
+        uses: actions/create-release@v1.1.4
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:

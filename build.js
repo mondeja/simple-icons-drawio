@@ -4,13 +4,20 @@
  * Creates a drawio library with all simple-icons icons.
  */
 
-const fs = require("fs");
-const simpleIcons = require("simple-icons");
-const zlib = require("zlib");
+import fs from "node:fs";
+import zlib from "node:zlib";
+import * as icons from "simple-icons/icons";
 
 const SVG_TITLE_EXPR = /<title>([^<]+)</
 
-const extractIconTitle = (svg) => svg.match(SVG_TITLE_EXPR)[1]
+const extractHtmlEncodedIconTitle = (svg) => svg.match(SVG_TITLE_EXPR)[1]
+
+const simplifyHexIfPossible = (hex) => {
+  if (hex[0] === hex[1] && hex[2] === hex[3] && hex[4] == hex[5]) {
+    return `${hex[0]}${hex[2]}${hex[4]}`;
+  }
+  return hex;
+};
 
 const mxGraph = (svg) => {
   return `<mxGraphModel>`
@@ -33,17 +40,15 @@ const mxGraph = (svg) => {
     + `</mxGraphModel>`;
 }
 
-const encodeMxGraph = (xml) => {
-  return encodeURIComponent(xml).replace('*', '%2A');
-}
+const encodeMxGraph = (xml) => encodeURIComponent(xml).replace('*', '%2A');
 
 const buildLibrary = () => {
   const library = [];
-  for (const slug in simpleIcons) {
-    const icon = simpleIcons[slug];
+  for (const si in icons) {
+    const icon = icons[si];
     const styledSvg =
       `<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">`
-      + `<style>svg{fill:#${icon.hex};}</style>`
+      + `<style>svg{fill:#${simplifyHexIfPossible(icon.hex)}}</style>`
       + `<path d="${icon.path}"/>`
       + `</svg>`
 
@@ -52,7 +57,7 @@ const buildLibrary = () => {
       xml: buffer.slice(2, buffer.length - 4).toString("base64"),
       h: 144,
       w: 144,
-      title: extractIconTitle(icon.svg),
+      title: extractHtmlEncodedIconTitle(icon.svg),
     });
   }
   return library;
