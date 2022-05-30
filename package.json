@@ -12,5 +12,6 @@
   "license": "BSD-3-Clause",
   "devDependencies": {
     "simple-icons": "7.0.0"
-  }
+  },
+  "type": "module"
 }
