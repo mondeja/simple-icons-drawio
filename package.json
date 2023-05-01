@@ -1,6 +1,6 @@
 {
   "name": "simple-icons-drawio",
-  "version": "8.11.0",
+  "version": "8.12.1",
   "scripts": {
     "build": "node build.js"
   },
@@ -11,7 +11,7 @@
   },
   "license": "BSD-3-Clause",
   "devDependencies": {
-    "simple-icons": "8.11.0"
+    "simple-icons": "8.12.1"
   },
   "type": "module"
 }
