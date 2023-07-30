@@ -38,7 +38,7 @@ jobs:
         run: npm install
       - name: Build library
         if: steps.get-releases.outputs.lib != steps.get-releases.outputs.si
-        run: npm run build
+        run: ./build.js > simple-icons.xml
       - name: Commit
         if: steps.get-releases.outputs.lib != steps.get-releases.outputs.si
         run: |
@@ -47,8 +47,8 @@ jobs:
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git config --global user.name "github-actions[bot]"
           # Create a version bump commit
-          git add simple-icons.xml package.json build.js README.md .editorconfig .gitignore images .github
-          git commit -m "Version bump"
+          git add .
+          git commit -m "Update simple-icons to v${{ steps.get-releases.outputs.si }}"
           # Merge develop into master
           git checkout master
           git merge develop -m "Release ${{ steps.get-releases.outputs.si }}"

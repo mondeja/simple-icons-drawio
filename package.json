@@ -1,9 +1,6 @@
 {
   "name": "simple-icons-drawio",
   "version": "9.7.0",
-  "scripts": {
-    "build": "node build.js"
-  },
   "keywords": [],
   "author": {
     "name": "Álvaro Mondéjar Rubio",
