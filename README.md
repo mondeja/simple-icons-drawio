@@ -34,11 +34,12 @@ Individual icons can be located using the shapes search tool:
 
 Better library load times can be achieved customizing your build for a subset of icons.
 
-1. Clone the repository and move inside it:
+1. Clone the repository, move inside it and install dependencies:
 
 ```sh
 git clone ssh://github.com/mondeja/simple-icons-drawio
 cd simple-icons-drawio
+npm install
 ```
 
 2. Redirect the output of the _./build.js_ script to a new XML file:
