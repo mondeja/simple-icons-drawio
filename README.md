@@ -9,19 +9,19 @@ Load all [simple-icons] brands directly to [drawio].
 ## Usage
 
 Inside a [drawio] project, go to `File` -> `Open library from` -> `URL` and
-paste the next [URL](https://github.com/mondeja/simple-icons-drawio/releases/download/9.8.0/simple-icons.xml):
+paste the next [URL](https://github.com/mondeja/simple-icons-drawio/releases/download/9.9.0/simple-icons.xml):
 
 ```
-https://github.com/mondeja/simple-icons-drawio/releases/download/9.8.0/simple-icons.xml
+https://github.com/mondeja/simple-icons-drawio/releases/download/9.9.0/simple-icons.xml
 ```
 
 :warning: Note that could take a few seconds to load.
 
 You can also start a new project in [diagrams.net] with the simple-icons
-library loaded using [this link](https://app.diagrams.net/?splash=0&clibs=https%3A%2F%2Fgithub.com%2Fmondeja%2Fsimple-icons-drawio%2Freleases%2Fdownload%2F9.8.0%2Fsimple-icons.xml):
+library loaded using [this link](https://app.diagrams.net/?splash=0&clibs=https%3A%2F%2Fgithub.com%2Fmondeja%2Fsimple-icons-drawio%2Freleases%2Fdownload%2F9.9.0%2Fsimple-icons.xml):
 
 ```
-https://app.diagrams.net/?splash=0&clibs=https%3A%2F%2Fgithub.com%2Fmondeja%2Fsimple-icons-drawio%2Freleases%2Fdownload%2F9.8.0%2Fsimple-icons.xml
+https://app.diagrams.net/?splash=0&clibs=https%3A%2F%2Fgithub.com%2Fmondeja%2Fsimple-icons-drawio%2Freleases%2Fdownload%2F9.9.0%2Fsimple-icons.xml
 ```
 
 Individual icons can be located using the shapes search tool:
@@ -50,7 +50,7 @@ npm install
 
 Use the next optional environment variables to filter the icons to include:
 
-- `SI_DRAWIO_SLUGS_FILTER`: Comma separated string of slugs to include in the build. See [all slugs](https://github.com/simple-icons/simple-icons/blob/9.8.0/slugs.md).
+- `SI_DRAWIO_SLUGS_FILTER`: Comma separated string of slugs to include in the build. See [all slugs](https://github.com/simple-icons/simple-icons/blob/9.9.0/slugs.md).
 - `SI_DRAWIO_ALPHABET_FILTER`: Comma separated string of letters of the alphabet. All the slugs starting with one of these letters will be included.
 
 For example, next command will include the brands Deno, [diagrams.net] and Node.js:
