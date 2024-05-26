@@ -8,10 +8,12 @@ Load all [simple-icons] brands directly to [drawio].
 
 ## Usage
 
-Inside a [drawio] project, go to `File` -> `Open library from` -> `URL` and
+### diagrams.net
+
+Inside a [diagrams.net] project, go to `File` -> `Open library from` -> `URL` and
 paste the next [URL](https://github.com/mondeja/simple-icons-drawio/releases/download/11.15.0/simple-icons.xml):
 
-```
+```text
 https://github.com/mondeja/simple-icons-drawio/releases/download/11.15.0/simple-icons.xml
 ```
 
@@ -20,9 +22,19 @@ https://github.com/mondeja/simple-icons-drawio/releases/download/11.15.0/simple-
 You can also start a new project in [diagrams.net] with the simple-icons
 library loaded using [this link](https://app.diagrams.net/?splash=0&clibs=https%3A%2F%2Fgithub.com%2Fmondeja%2Fsimple-icons-drawio%2Freleases%2Fdownload%2F11.15.0%2Fsimple-icons.xml):
 
-```
+```text
 https://app.diagrams.net/?splash=0&clibs=https%3A%2F%2Fgithub.com%2Fmondeja%2Fsimple-icons-drawio%2Freleases%2Fdownload%2F11.15.0%2Fsimple-icons.xml
 ```
+
+### drawio desktop app
+
+If you're using the [drawio] desktop application, download the library file from [the next URL](https://github.com/mondeja/simple-icons-drawio/releases/download/11.15.0/simple-icons.xml) and open it with `File` -> `Open Library`:
+
+```text
+https://github.com/mondeja/simple-icons-drawio/releases/download/11.15.0/simple-icons.xml
+```
+
+## Select icons
 
 Individual icons can be located using the shapes search tool:
 
@@ -59,7 +71,7 @@ For example, next command will include the brands Deno, [diagrams.net] and Node.
 SI_DRAWIO_SLUGS_FILTER=diagramsdotnet,simpleicons,deno,nodedotjs SI_DRAWIO_ALPHABET_FILTER=n,d ./build.js > simple-icons-subset.xml
 ```
 
-3. Inside a [drawio] project, go to `File` -> `Open library from` -> `Device` and select the created file.
+3. Inside a [diagrams.net] project, go to `File` -> `Open library from` -> `Device` and select the created file. If you're using the [drawio] desktop app, go to `File` -> `Open Library` and select the created file.
 
 [diagrams.net]: https://www.diagrams.net/
 [drawio]: https://github.com/jgraph/drawio
