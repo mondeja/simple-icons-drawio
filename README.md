@@ -1,6 +1,6 @@
-# [diagrams.net] library for [simple-icons]
+# [diagrams.net] library for [Simple Icons]
 
-Load all [simple-icons] brands directly to [drawio].
+Load all [Simple Icons] brands directly to [drawio].
 
 <p align="center">
   <img src="https://github.com/mondeja/simple-icons-drawio/raw/develop/images/simple-icons-drawio.png" "Simple Icons in drawio">
@@ -73,6 +73,6 @@ SI_DRAWIO_SLUGS_FILTER=diagramsdotnet,simpleicons,deno,nodedotjs SI_DRAWIO_ALPHA
 
 3. Inside a [diagrams.net] project, go to `File` -> `Open library from` -> `Device` and select the created file. If you're using the [drawio] desktop app, go to `File` -> `Open Library` and select the created file.
 
-[diagrams.net]: https://www.diagrams.net/
+[diagrams.net]: https://www.diagrams.net
 [drawio]: https://github.com/jgraph/drawio
-[simple-icons]: https://simpleicons.org/
+[Simple Icons]: https://wasm.simpleicons.org
