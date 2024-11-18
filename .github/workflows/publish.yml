@@ -36,6 +36,14 @@ jobs:
     needs: get-releases
     if: needs.get-releases.outputs.si != needs.get-releases.outputs.lib
     steps:
+      - uses: actions/checkout@v4
+        with:
+          # Ensure we are checked out on the develop branch
+          ref: develop
+          # Ensure custom credentials are used when pushing
+          persist-credentials: false
+          # Fetch everything so we can checkout master
+          fetch-depth: 0
       - name: Bump version
         run: |
           sed -i 's/"version": "${{ needs.get-releases.outputs.lib }}",/"version": "${{ needs.get-releases.outputs.si }}",/' package.json
