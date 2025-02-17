@@ -75,4 +75,4 @@ SI_DRAWIO_SLUGS_FILTER=diagramsdotnet,simpleicons,deno,nodedotjs SI_DRAWIO_ALPHA
 
 [diagrams.net]: https://www.diagrams.net
 [drawio]: https://github.com/jgraph/drawio
-[Simple Icons]: https://wasm.simpleicons.org
+[Simple Icons]: https://simpleicons.org
