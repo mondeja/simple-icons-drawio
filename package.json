@@ -1,6 +1,6 @@
 {
   "name": "simple-icons-drawio",
-  "version": "14.12.1",
+  "version": "14.12.2",
   "keywords": [],
   "author": {
     "name": "Álvaro Mondéjar Rubio",
@@ -8,7 +8,7 @@
   },
   "license": "BSD-3-Clause",
   "devDependencies": {
-    "simple-icons": "14.12.1"
+    "simple-icons": "14.12.2"
   },
   "type": "module"
 }
