@@ -5,7 +5,7 @@
  */
 
 import zlib from "node:zlib";
-import * as icons from "simple-icons/icons";
+import * as icons from "simple-icons";
 
 const ICONS = Object.values(icons);
 
@@ -51,7 +51,7 @@ const buildLibrary = function* (slugs = []) {
     }
     const buffer = zlib.deflateSync(encodedMxGraph(icon.path, icon.hex));
     yield {
-      xml: buffer.slice(2, buffer.length - 4).toString("base64"),
+      xml: buffer.subarray(2, buffer.length - 4).toString("base64"),
       h: 144,
       w: 144,
       title: icon.svg.split(">")[2].split("<")[0],
