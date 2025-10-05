@@ -11,27 +11,27 @@ Load all [Simple Icons] brands directly to [drawio].
 ### diagrams.net
 
 Inside a [diagrams.net] project, go to `File` -> `Open library from` -> `URL` and
-paste the next [URL](https://github.com/mondeja/simple-icons-drawio/releases/download/15.16.0/simple-icons.xml):
+paste the next [URL](https://github.com/mondeja/simple-icons-drawio/releases/download/15.16.1/simple-icons.xml):
 
 ```text
-https://github.com/mondeja/simple-icons-drawio/releases/download/15.16.0/simple-icons.xml
+https://github.com/mondeja/simple-icons-drawio/releases/download/15.16.1/simple-icons.xml
 ```
 
 :warning: Note that could take a few seconds to load.
 
 You can also start a new project in [diagrams.net] with the simple-icons
-library loaded using [this link](https://app.diagrams.net/?splash=0&clibs=https%3A%2F%2Fgithub.com%2Fmondeja%2Fsimple-icons-drawio%2Freleases%2Fdownload%2F15.16.0%2Fsimple-icons.xml):
+library loaded using [this link](https://app.diagrams.net/?splash=0&clibs=https%3A%2F%2Fgithub.com%2Fmondeja%2Fsimple-icons-drawio%2Freleases%2Fdownload%2F15.16.1%2Fsimple-icons.xml):
 
 ```text
-https://app.diagrams.net/?splash=0&clibs=https%3A%2F%2Fgithub.com%2Fmondeja%2Fsimple-icons-drawio%2Freleases%2Fdownload%2F15.16.0%2Fsimple-icons.xml
+https://app.diagrams.net/?splash=0&clibs=https%3A%2F%2Fgithub.com%2Fmondeja%2Fsimple-icons-drawio%2Freleases%2Fdownload%2F15.16.1%2Fsimple-icons.xml
 ```
 
 ### drawio desktop app
 
-If you're using the [drawio] desktop application, download the library file from [the next URL](https://github.com/mondeja/simple-icons-drawio/releases/download/15.16.0/simple-icons.xml) and open it with `File` -> `Open Library`:
+If you're using the [drawio] desktop application, download the library file from [the next URL](https://github.com/mondeja/simple-icons-drawio/releases/download/15.16.1/simple-icons.xml) and open it with `File` -> `Open Library`:
 
 ```text
-https://github.com/mondeja/simple-icons-drawio/releases/download/15.16.0/simple-icons.xml
+https://github.com/mondeja/simple-icons-drawio/releases/download/15.16.1/simple-icons.xml
 ```
 
 ## Select icons
@@ -62,7 +62,7 @@ npm install
 
 Use the next optional environment variables to filter the icons to include:
 
-- `SI_DRAWIO_SLUGS_FILTER`: Comma separated string of slugs to include in the build. See [all slugs](https://github.com/simple-icons/simple-icons/blob/15.16.0/slugs.md).
+- `SI_DRAWIO_SLUGS_FILTER`: Comma separated string of slugs to include in the build. See [all slugs](https://github.com/simple-icons/simple-icons/blob/15.16.1/slugs.md).
 - `SI_DRAWIO_ALPHABET_FILTER`: Comma separated string of letters of the alphabet. All the slugs starting with one of these letters will be included.
 
 For example, next command will include the brands Deno, [diagrams.net] and Node.js:
