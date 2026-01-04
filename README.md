@@ -53,7 +53,7 @@ https://github.com/mondeja/simple-icons-drawio/releases/download/16.4.0/{id}.xml
 ```
 
 <!-- partial builds table -->
-| Id | Download Link |
+| Build | Download Link |
 |--------|---------------|
 | `0-9` | [0-9.xml](https://github.com/mondeja/simple-icons-drawio/releases/download/16.4.0/0-9.xml) |
 | `a` | [a.xml](https://github.com/mondeja/simple-icons-drawio/releases/download/16.4.0/a.xml) |
