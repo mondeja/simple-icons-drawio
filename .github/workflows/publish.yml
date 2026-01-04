@@ -48,7 +48,9 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Build library
-        run: ./build.js > simple-icons.xml
+        run: ./scripts/build.js > simple-icons.xml
+      - name: Build partial libraries
+        run: ./scripts/build-partials.js
       - name: Commit
         run: |
           set -e
@@ -81,7 +83,9 @@ jobs:
           tag_name: ${{ needs.get-releases.outputs.si }}
           draft: false
           prerelease: false
-          files: simple-icons.xml
+          files: |
+            simple-icons.xml
+            dist/*.xml
           body: |
             See https://github.com/simple-icons/simple-icons/releases/tag/${{ needs.get-releases.outputs.si }}
         env:
