@@ -69,11 +69,11 @@ const updateReadme = (letters) => {
   const endMarker = '<!-- partial builds table end -->';
 
   const tableLines = [];
-  tableLines.push('| Build | Download Link |');
+  tableLines.push('| Id | Download Link |');
   tableLines.push('|--------|---------------|');
   for (const letter of letters) {
     const downloadLink = `https://github.com/mondeja/simple-icons-drawio/releases/download/${version}/${letter}.xml`;
-    tableLines.push(`| \`${letter}\` | [${letter}.xml](${downloadLink}) |`);
+    tableLines.push(`| \`${letter}\` | [${downloadLink}](${downloadLink}) |`);
   }
 
   const newTableContent = `${startMarker}\n${tableLines.join('\n')}\n${endMarker}`;
