@@ -1,6 +1,6 @@
 {
   "name": "simple-icons-drawio",
-  "version": "16.3.0",
+  "version": "16.4.0",
   "keywords": [],
   "author": {
     "name": "Álvaro Mondéjar Rubio",
@@ -8,7 +8,7 @@
   },
   "license": "BSD-3-Clause",
   "devDependencies": {
-    "simple-icons": "16.3.0"
+    "simple-icons": "16.4.0"
   },
   "type": "module"
 }
