@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * @fileoverview
- * Creates a drawio library with all simple-icons icons.
+ * Creates a drawio library with all Simple Icons.
  */
 
 import zlib from "node:zlib";
@@ -59,12 +59,12 @@ const buildLibrary = function* (slugs = []) {
   }
 };
 
-const determineSlugs = () => {
+const determineSlugs = (slugsFilter, alphabetFilter) => {
   const allSlugs = ICONS.map((icon) => icon.slug);
   let slugs = [];
 
-  if (process.env.SI_DRAWIO_SLUGS_FILTER) {
-    slugs = process.env.SI_DRAWIO_SLUGS_FILTER.split(",");
+  if (slugsFilter) {
+    slugs = slugsFilter.split(",");
 
     const validSlugs = [];
     for (const slug of slugs) {
@@ -86,10 +86,10 @@ const determineSlugs = () => {
     slugs = allSlugs;
   }
 
-  if (process.env.SI_DRAWIO_ALPHABET_FILTER) {
+  if (alphabetFilter) {
     const regex = new RegExp(
       "^(" +
-        process.env.SI_DRAWIO_ALPHABET_FILTER.split(",")
+        alphabetFilter.split(",")
           .map((c) => c.toLowerCase())
           .join("|") +
         ")"
@@ -100,8 +100,20 @@ const determineSlugs = () => {
   return slugs;
 };
 
-process.stdout.write(
-  `<mxlibrary title="Simple Icons">` +
-    JSON.stringify(Array.from(buildLibrary(determineSlugs()))) +
-    `</mxlibrary>`
-);
+/**
+ * Builds the drawio library XML.
+ * @returns {string} The drawio library XML.
+ */
+export const build = (slugsFilter, alphabetFilter) => {
+  return (
+    `<mxlibrary title="Simple Icons">` +
+      JSON.stringify(Array.from(buildLibrary(determineSlugs(slugsFilter, alphabetFilter)))) +
+      `</mxlibrary>`
+  )
+}
+
+if (import.meta.url === `file://${process.argv[1]}`) {
+  process.stdout.write(
+    build(process.env.SI_DRAWIO_SLUGS_FILTER, process.env.SI_DRAWIO_ALPHABET_FILTER)
+  );
+}
