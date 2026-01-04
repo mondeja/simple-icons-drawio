@@ -2,3 +2,4 @@
 package-lock.json
 *.xml
 !simple-icons.xml
+dist/

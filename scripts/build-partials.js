@@ -36,7 +36,7 @@ const buildPartialLibraries = (letters) => {
   process.stdout.write('Building partial libraries for letters')
   for (const letter of letters) {
     const alphabetFilter = letter === '0-9' ? '0,1,2,3,4,5,6,7,8,9' : letter;
-    const partialLib = build(undefined, alphabetFilter);
+    const partialLib = build(`Simple Icons - ${letter}`, undefined, alphabetFilter);
     fs.writeFileSync(
       path.join(
         "./dist",

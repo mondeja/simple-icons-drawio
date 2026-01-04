@@ -104,9 +104,9 @@ const determineSlugs = (slugsFilter, alphabetFilter) => {
  * Builds the drawio library XML.
  * @returns {string} The drawio library XML.
  */
-export const build = (slugsFilter, alphabetFilter) => {
+export const build = (libraryName, slugsFilter, alphabetFilter) => {
   return (
-    `<mxlibrary title="Simple Icons">` +
+    `<mxlibrary title="${libraryName}">` +
       JSON.stringify(Array.from(buildLibrary(determineSlugs(slugsFilter, alphabetFilter)))) +
       `</mxlibrary>`
   )
@@ -114,6 +114,6 @@ export const build = (slugsFilter, alphabetFilter) => {
 
 if (import.meta.url === `file://${process.argv[1]}`) {
   process.stdout.write(
-    build(process.env.SI_DRAWIO_SLUGS_FILTER, process.env.SI_DRAWIO_ALPHABET_FILTER)
+    build("Simple Icons", process.env.SI_DRAWIO_SLUGS_FILTER, process.env.SI_DRAWIO_ALPHABET_FILTER)
   );
 }
