@@ -1,3 +1,5 @@
+<!-- markdownlint-disable no-inline-html table-column-style ol-prefix -->
+
 # [diagrams.net] library for [Simple Icons]
 
 Load all [Simple Icons] brands directly to [drawio].
@@ -10,7 +12,7 @@ Load all [Simple Icons] brands directly to [drawio].
 
 ### diagrams.net
 
-Inside a [diagrams.net] project, go to `File` -> `Open library from` -> `URL` and
+Inside a [diagrams.net] project, go to `File` → `Open library from` → `URL` and
 paste the next [URL](https://github.com/mondeja/simple-icons-drawio/releases/download/16.5.0/simple-icons.xml):
 
 ```text
@@ -28,7 +30,7 @@ https://app.diagrams.net/?splash=0&clibs=https%3A%2F%2Fgithub.com%2Fmondeja%2Fsi
 
 ### drawio desktop app
 
-If you're using the [drawio] desktop application, download the library file from [the next URL](https://github.com/mondeja/simple-icons-drawio/releases/download/16.5.0/simple-icons.xml) and open it with `File` -> `Open Library`:
+If you're using the [drawio] desktop application, download the library file from [the next URL](https://github.com/mondeja/simple-icons-drawio/releases/download/16.5.0/simple-icons.xml) and open it with `File` → `Open Library`:
 
 ```text
 https://github.com/mondeja/simple-icons-drawio/releases/download/16.5.0/simple-icons.xml
@@ -55,33 +57,33 @@ https://github.com/mondeja/simple-icons-drawio/releases/download/16.5.0/{id}.xml
 <!-- partial builds table -->
 | Id | Download Link |
 |--------|---------------|
-| `0-9` | [https://github.com/mondeja/simple-icons-drawio/releases/download/16.5.0/0-9.xml](https://github.com/mondeja/simple-icons-drawio/releases/download/16.5.0/0-9.xml) |
-| `a` | [https://github.com/mondeja/simple-icons-drawio/releases/download/16.5.0/a.xml](https://github.com/mondeja/simple-icons-drawio/releases/download/16.5.0/a.xml) |
-| `b` | [https://github.com/mondeja/simple-icons-drawio/releases/download/16.5.0/b.xml](https://github.com/mondeja/simple-icons-drawio/releases/download/16.5.0/b.xml) |
-| `c` | [https://github.com/mondeja/simple-icons-drawio/releases/download/16.5.0/c.xml](https://github.com/mondeja/simple-icons-drawio/releases/download/16.5.0/c.xml) |
-| `d` | [https://github.com/mondeja/simple-icons-drawio/releases/download/16.5.0/d.xml](https://github.com/mondeja/simple-icons-drawio/releases/download/16.5.0/d.xml) |
-| `e` | [https://github.com/mondeja/simple-icons-drawio/releases/download/16.5.0/e.xml](https://github.com/mondeja/simple-icons-drawio/releases/download/16.5.0/e.xml) |
-| `f` | [https://github.com/mondeja/simple-icons-drawio/releases/download/16.5.0/f.xml](https://github.com/mondeja/simple-icons-drawio/releases/download/16.5.0/f.xml) |
-| `g` | [https://github.com/mondeja/simple-icons-drawio/releases/download/16.5.0/g.xml](https://github.com/mondeja/simple-icons-drawio/releases/download/16.5.0/g.xml) |
-| `h` | [https://github.com/mondeja/simple-icons-drawio/releases/download/16.5.0/h.xml](https://github.com/mondeja/simple-icons-drawio/releases/download/16.5.0/h.xml) |
-| `i` | [https://github.com/mondeja/simple-icons-drawio/releases/download/16.5.0/i.xml](https://github.com/mondeja/simple-icons-drawio/releases/download/16.5.0/i.xml) |
-| `j` | [https://github.com/mondeja/simple-icons-drawio/releases/download/16.5.0/j.xml](https://github.com/mondeja/simple-icons-drawio/releases/download/16.5.0/j.xml) |
-| `k` | [https://github.com/mondeja/simple-icons-drawio/releases/download/16.5.0/k.xml](https://github.com/mondeja/simple-icons-drawio/releases/download/16.5.0/k.xml) |
-| `l` | [https://github.com/mondeja/simple-icons-drawio/releases/download/16.5.0/l.xml](https://github.com/mondeja/simple-icons-drawio/releases/download/16.5.0/l.xml) |
-| `m` | [https://github.com/mondeja/simple-icons-drawio/releases/download/16.5.0/m.xml](https://github.com/mondeja/simple-icons-drawio/releases/download/16.5.0/m.xml) |
-| `n` | [https://github.com/mondeja/simple-icons-drawio/releases/download/16.5.0/n.xml](https://github.com/mondeja/simple-icons-drawio/releases/download/16.5.0/n.xml) |
-| `o` | [https://github.com/mondeja/simple-icons-drawio/releases/download/16.5.0/o.xml](https://github.com/mondeja/simple-icons-drawio/releases/download/16.5.0/o.xml) |
-| `p` | [https://github.com/mondeja/simple-icons-drawio/releases/download/16.5.0/p.xml](https://github.com/mondeja/simple-icons-drawio/releases/download/16.5.0/p.xml) |
-| `q` | [https://github.com/mondeja/simple-icons-drawio/releases/download/16.5.0/q.xml](https://github.com/mondeja/simple-icons-drawio/releases/download/16.5.0/q.xml) |
-| `r` | [https://github.com/mondeja/simple-icons-drawio/releases/download/16.5.0/r.xml](https://github.com/mondeja/simple-icons-drawio/releases/download/16.5.0/r.xml) |
-| `s` | [https://github.com/mondeja/simple-icons-drawio/releases/download/16.5.0/s.xml](https://github.com/mondeja/simple-icons-drawio/releases/download/16.5.0/s.xml) |
-| `t` | [https://github.com/mondeja/simple-icons-drawio/releases/download/16.5.0/t.xml](https://github.com/mondeja/simple-icons-drawio/releases/download/16.5.0/t.xml) |
-| `u` | [https://github.com/mondeja/simple-icons-drawio/releases/download/16.5.0/u.xml](https://github.com/mondeja/simple-icons-drawio/releases/download/16.5.0/u.xml) |
-| `v` | [https://github.com/mondeja/simple-icons-drawio/releases/download/16.5.0/v.xml](https://github.com/mondeja/simple-icons-drawio/releases/download/16.5.0/v.xml) |
-| `w` | [https://github.com/mondeja/simple-icons-drawio/releases/download/16.5.0/w.xml](https://github.com/mondeja/simple-icons-drawio/releases/download/16.5.0/w.xml) |
-| `x` | [https://github.com/mondeja/simple-icons-drawio/releases/download/16.5.0/x.xml](https://github.com/mondeja/simple-icons-drawio/releases/download/16.5.0/x.xml) |
-| `y` | [https://github.com/mondeja/simple-icons-drawio/releases/download/16.5.0/y.xml](https://github.com/mondeja/simple-icons-drawio/releases/download/16.5.0/y.xml) |
-| `z` | [https://github.com/mondeja/simple-icons-drawio/releases/download/16.5.0/z.xml](https://github.com/mondeja/simple-icons-drawio/releases/download/16.5.0/z.xml) |
+| `0-9` | <https://github.com/mondeja/simple-icons-drawio/releases/download/16.5.0/0-9.xml> |
+| `a` | <https://github.com/mondeja/simple-icons-drawio/releases/download/16.5.0/a.xml> |
+| `b` | <https://github.com/mondeja/simple-icons-drawio/releases/download/16.5.0/b.xml> |
+| `c` | <https://github.com/mondeja/simple-icons-drawio/releases/download/16.5.0/c.xml> |
+| `d` | <https://github.com/mondeja/simple-icons-drawio/releases/download/16.5.0/d.xml> |
+| `e` | <https://github.com/mondeja/simple-icons-drawio/releases/download/16.5.0/e.xml> |
+| `f` | <https://github.com/mondeja/simple-icons-drawio/releases/download/16.5.0/f.xml> |
+| `g` | <https://github.com/mondeja/simple-icons-drawio/releases/download/16.5.0/g.xml> |
+| `h` | <https://github.com/mondeja/simple-icons-drawio/releases/download/16.5.0/h.xml> |
+| `i` | <https://github.com/mondeja/simple-icons-drawio/releases/download/16.5.0/i.xml> |
+| `j` | <https://github.com/mondeja/simple-icons-drawio/releases/download/16.5.0/j.xml> |
+| `k` | <https://github.com/mondeja/simple-icons-drawio/releases/download/16.5.0/k.xml> |
+| `l` | <https://github.com/mondeja/simple-icons-drawio/releases/download/16.5.0/l.xml> |
+| `m` | <https://github.com/mondeja/simple-icons-drawio/releases/download/16.5.0/m.xml> |
+| `n` | <https://github.com/mondeja/simple-icons-drawio/releases/download/16.5.0/n.xml> |
+| `o` | <https://github.com/mondeja/simple-icons-drawio/releases/download/16.5.0/o.xml> |
+| `p` | <https://github.com/mondeja/simple-icons-drawio/releases/download/16.5.0/p.xml> |
+| `q` | <https://github.com/mondeja/simple-icons-drawio/releases/download/16.5.0/q.xml> |
+| `r` | <https://github.com/mondeja/simple-icons-drawio/releases/download/16.5.0/r.xml> |
+| `s` | <https://github.com/mondeja/simple-icons-drawio/releases/download/16.5.0/s.xml> |
+| `t` | <https://github.com/mondeja/simple-icons-drawio/releases/download/16.5.0/t.xml> |
+| `u` | <https://github.com/mondeja/simple-icons-drawio/releases/download/16.5.0/u.xml> |
+| `v` | <https://github.com/mondeja/simple-icons-drawio/releases/download/16.5.0/v.xml> |
+| `w` | <https://github.com/mondeja/simple-icons-drawio/releases/download/16.5.0/w.xml> |
+| `x` | <https://github.com/mondeja/simple-icons-drawio/releases/download/16.5.0/x.xml> |
+| `y` | <https://github.com/mondeja/simple-icons-drawio/releases/download/16.5.0/y.xml> |
+| `z` | <https://github.com/mondeja/simple-icons-drawio/releases/download/16.5.0/z.xml> |
 <!-- partial builds table end -->
 
 ## Custom builds
@@ -113,7 +115,7 @@ For example, next command will include the brands Deno, [diagrams.net] and Node.
 SI_DRAWIO_SLUGS_FILTER=diagramsdotnet,simpleicons,deno,nodedotjs SI_DRAWIO_ALPHABET_FILTER=n,d ./scripts/build.js > simple-icons-subset.xml
 ```
 
-3. Inside a [diagrams.net] project, go to `File` -> `Open library from` -> `Device` and select the created file. If you're using the [drawio] desktop app, go to `File` -> `Open Library` and select the created file.
+3. Inside a [diagrams.net] project, go to `File` → `Open library from` → `Device` and select the created file. If you're using the [drawio] desktop app, go to `File` → `Open Library` and select the created file.
 
 [diagrams.net]: https://www.diagrams.net
 [drawio]: https://github.com/jgraph/drawio
