@@ -73,7 +73,7 @@ const updateReadme = (letters) => {
   tableLines.push('|--------|---------------|');
   for (const letter of letters) {
     const downloadLink = `https://github.com/mondeja/simple-icons-drawio/releases/download/${version}/${letter}.xml`;
-    tableLines.push(`| \`${letter}\` | [${downloadLink}](${downloadLink}) |`);
+    tableLines.push(`| \`${letter}\` | <${downloadLink}> |`);
   }
 
   const newTableContent = `${startMarker}\n${tableLines.join('\n')}\n${endMarker}`;
